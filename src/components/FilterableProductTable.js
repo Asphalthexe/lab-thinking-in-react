@@ -29,6 +29,9 @@ class FilterableProductTable extends React.Component {
 
     render() {
 
+        let filteredProducts = this.state.products.filter((product) => product.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+
+
         return (
             <div>
                 <h2 class="title is-2">Iron Shop</h2>
@@ -36,7 +39,7 @@ class FilterableProductTable extends React.Component {
                 <SearchBar onSearchCallback={this.searchHandler} currentSearchTerm={this.state.searchTerm} />
                 </div>
                 <div>
-                 <ProductTable />
+                 <ProductTable products={filteredProducts} />
                 </div>
             </div>
         )
